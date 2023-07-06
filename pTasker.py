@@ -1,6 +1,6 @@
 #------------------
 import sys
-import csv
+import sqlite3
 
 #------------------global variables 
 user_input = sys.argv
