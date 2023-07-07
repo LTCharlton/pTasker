@@ -1,10 +1,12 @@
 #------------------
 import sys
+import os
 import sqlite3
 
 #------------------global variables 
 user_input = sys.argv
 task = 0
+db_file = "pTasker.db"
 
 #-------------------functions
 
@@ -23,3 +25,11 @@ def removeTask(task):
 
 #-------------------main
 print(showTasks())
+
+if not os.path.exists(db_file):
+    # Create a new database file
+    conn = sqlite3.connect(db_file)
+    conn.close()
+    print(f"New database file '{db_file}' created.")
+else:
+    print(f"Database file '{db_file}' already exists.")
