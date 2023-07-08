@@ -1,35 +1,51 @@
 #------------------
 import sys
-import os
-import sqlite3
+import SQL_Handler
 
 #------------------global variables 
+
+sql = SQL_Handler
 user_input = sys.argv
-task = 0
-db_file = "pTasker.db"
+connection = sql.Connect()
 
 #-------------------functions
 
-def readInput():
-    return 0
-
-def addTask():
-    #this will save a task to a csv file within the folder
+def addTask(task):
+    new_task = task
+    print("task added " + new_task)
     return 0
 
 def showTasks():
     return 0
 
-def removeTask(task):
+def removeTask():
+    return 0
+
+def commands():
+    # this will show all available commands
+    print("these are the commands you can use to alter your tasks:")
+    print("add")
+    print("delete")
+    print("commands") 
+    return 0
+
+def readInput():
+    if user_input[1].lower() == "add":
+        addTask(user_input[2])
+    elif user_input[1].lower() == "remove":
+        removeTask()
+    elif user_input[1].lower() == "commands":
+        commands()
+    return 0
+
+def end():
+    # apparently its good practice to close a database connection to free resources
+    connection.close()
     return 0
 
 #-------------------main
 print(showTasks())
+readInput()
 
-if not os.path.exists(db_file):
-    # Create a new database file
-    conn = sqlite3.connect(db_file)
-    conn.close()
-    print(f"New database file '{db_file}' created.")
-else:
-    print(f"Database file '{db_file}' already exists.")
+
+end()
