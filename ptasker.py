@@ -1,50 +1,50 @@
 #------------------
 import sys
-import SQL_Handler
+import sql_handler
 
 #------------------global variables 
 
-sql = SQL_Handler
+sql = sql_handler
 user_input = sys.argv
-connection = sql.Connect()
 
 #-------------------functions
 
-def addTask(task):
+def add_task(task):
     new_task = task
     print("task added " + new_task)
+    sql.save_to_file()
     return 0
 
-def showTasks():
+def show_tasks():
     return 0
 
-def removeTask():
+def remove_task():
     return 0
 
 def commands():
     # this will show all available commands
-    print("these are the commands you can use to alter your tasks:")
+    print("input command after script name:")
     print("add")
     print("delete")
-    print("commands") 
     return 0
 
 def readInput():
-    if user_input[1].lower() == "add":
-        addTask(user_input[2])
-    elif user_input[1].lower() == "remove":
-        removeTask()
-    elif user_input[1].lower() == "commands":
+    if len(user_input) > 1:
+        if user_input[1].lower() == "add":
+            add_task(user_input[2])
+        elif user_input[1].lower() == "remove":
+            remove_task()
+    else:
         commands()
     return 0
 
 def end():
     # apparently its good practice to close a database connection to free resources
-    connection.close()
+   
     return 0
 
 #-------------------main
-print(showTasks())
+print(show_tasks())
 readInput()
 
 
