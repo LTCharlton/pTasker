@@ -9,6 +9,11 @@ user_input = sys.argv
 
 #-------------------functions
 
+
+def main():
+    return 0
+
+
 def add_task(task):
     new_task = task
     print("task added " + new_task)
@@ -49,3 +54,5 @@ readInput()
 
 
 end()
+
+main()
