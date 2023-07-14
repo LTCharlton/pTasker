@@ -11,6 +11,7 @@ user_input = sys.argv
 
 
 def main():
+    readnput()
     return 0
 
 
@@ -50,7 +51,6 @@ def end():
 
 #-------------------main
 print(show_tasks())
-readInput()
 
 
 end()
