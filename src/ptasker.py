@@ -7,12 +7,15 @@ import sql_handler
 sql = sql_handler
 user_input = sys.argv
 
-#-------------------functions
+#-------------------main()
 
 
 def main():
-    readnput()
+    read_input()
     return 0
+
+
+#-------------------functions
 
 
 def add_task(task):
@@ -34,7 +37,7 @@ def commands():
     print("delete")
     return 0
 
-def readInput():
+def read_input():
     if len(user_input) > 1:
         if user_input[1].lower() == "add":
             add_task(user_input[2])
@@ -44,15 +47,6 @@ def readInput():
         commands()
     return 0
 
-def end():
-    # apparently its good practice to close a database connection to free resources
-   
-    return 0
-
-#-------------------main
-print(show_tasks())
-
-
-end()
+#-------------------run
 
 main()
