@@ -21,7 +21,7 @@ def main():
 def add_task(task):
     new_task = task
     print("task added " + new_task)
-    sql.save_to_file()
+    sql.save_to_file(task)
     return 0
 
 def show_tasks():
